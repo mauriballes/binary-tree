@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/mauriballes/binary-tree.git",
   "author": "Mauricio Ballesteros",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
