@@ -6,7 +6,13 @@
   "repository": "https://github.com/mauriballes/binary-tree.git",
   "author": "Mauricio Ballesteros",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack"
+  },
   "dependencies": {
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0"
   }
 }
