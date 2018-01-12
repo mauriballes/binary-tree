@@ -1,0 +1,9 @@
+{
+  "name": "binary-tree",
+  "version": "1.0.0",
+  "description": "Binary Tree Project",
+  "main": "index.js",
+  "repository": "https://github.com/mauriballes/binary-tree.git",
+  "author": "Mauricio Ballesteros",
+  "license": "MIT"
+}
