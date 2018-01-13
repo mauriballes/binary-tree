@@ -1,2 +1,2 @@
 // import principal app
-import './src';
+import './src/events';

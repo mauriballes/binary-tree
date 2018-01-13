@@ -28,13 +28,13 @@
       <p class="lead text-center">Uso de Arboles Binarios con Typescript y ES6.</p>
       <div class="row">
         <div class="col-4">
-          <button class="btn btn-outline-success btn-block" id="insertValue">Insert</button>
+          <button class="btn btn-outline-success btn-block" data-toggle="modal" data-target="#inputModal" data-whatever="@insert">Insert</button>
         </div>
         <div class="col-4">
-          <button class="btn btn-outline-warning btn-block" id="findValue">Find</button>
+          <button class="btn btn-outline-warning btn-block" data-toggle="modal" data-target="#inputModal" data-whatever="@find">Find</button>
         </div>
         <div class="col-4">
-          <button class="btn btn-outline-danger btn-block" id="removeValue">Remove</button>
+          <button class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#inputModal" data-whatever="@remove">Remove</button>
         </div>
       </div>
       <br />
@@ -45,6 +45,33 @@
       </div>
     </div>
   </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inputModalLabel">Binary Tree</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Value:</label>
+              <input type="text" class="form-control" id="input-value">
+              <input type="hidden" name="method" id="method">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="send-action">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
