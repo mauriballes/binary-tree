@@ -102,34 +102,34 @@ export class Tree {
     if (leaf.left === null) return leaf.value;
     return this.minValueRecursive(leaf.left);
   }
-  inOrder(): Array<number> {
+  inOrder(): Array<Leaf> {
     return this.inOrderRecursive(this._root);
   }
-  private inOrderRecursive(leaf: Leaf | null): Array<number> {
+  private inOrderRecursive(leaf: Leaf | null): Array<Leaf> {
     if (leaf === null) return [];
-    let left: number[] = this.inOrderRecursive(leaf.left);
-    let actual: number[] = [leaf.value];
-    let right: number[] = this.inOrderRecursive(leaf.right);
+    let left: Leaf[] = this.inOrderRecursive(leaf.left);
+    let actual: Leaf[] = [leaf];
+    let right: Leaf[] = this.inOrderRecursive(leaf.right);
     return left.concat(actual.concat(right));
   }
-  preOrder(): Array<number> {
+  preOrder(): Array<Leaf> {
     return this.preOrderRecursive(this._root);
   }
-  private preOrderRecursive(leaf: Leaf | null): Array<number> {
+  private preOrderRecursive(leaf: Leaf | null): Array<Leaf> {
     if (leaf === null) return [];
-    let actual: number[] = [leaf.value];
-    let left: number[] = this.preOrderRecursive(leaf.left);
-    let right: number[] = this.preOrderRecursive(leaf.right);
+    let actual: Leaf[] = [leaf];
+    let left: Leaf[] = this.preOrderRecursive(leaf.left);
+    let right: Leaf[] = this.preOrderRecursive(leaf.right);
     return actual.concat(left.concat(right));
   }
-  postOrder(): Array<number> {
+  postOrder(): Array<Leaf> {
     return this.postOrderRecursive(this._root);
   }
-  private postOrderRecursive(leaf: Leaf | null): Array<number> {
+  private postOrderRecursive(leaf: Leaf | null): Array<Leaf> {
     if (leaf === null) return [];
-    let left: number[] = this.postOrderRecursive(leaf.left);
-    let right: number[] = this.postOrderRecursive(leaf.right);
-    let actual: number[] = [leaf.value];
+    let left: Leaf[] = this.postOrderRecursive(leaf.left);
+    let right: Leaf[] = this.postOrderRecursive(leaf.right);
+    let actual: Leaf[] = [leaf];
     return left.concat(right.concat(actual));
   }
   // toString
