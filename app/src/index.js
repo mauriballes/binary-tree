@@ -1,4 +1,4 @@
-import {DataSet, Network} from 'vis';
+import { DataSet, Network } from 'vis';
 
 // create an array with nodes
 let nodes = new DataSet([

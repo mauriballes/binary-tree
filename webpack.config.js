@@ -2,7 +2,12 @@ module.exports = {
   entry: './app/main.js',
   output: {
     path: __dirname + '/public/js',
-    filename: 'bundle.js'
+    filename: 'bundle.min.js'
+  },
+  devServer: {
+    contentBase: "./public",
+    compress: true,
+    port: 9000
   },
   module: {
     rules: [
