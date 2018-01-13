@@ -18,4 +18,8 @@ export class Leaf {
 
   get right(): Leaf | null { return this._right; }
   set right(right: Leaf | null) { this._right = right; }
+  // toString
+  toString(): string {
+    return String(this._value);
+  }
 }
