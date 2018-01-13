@@ -1,13 +1,12 @@
 module.exports = {
   entry: './app/main.js',
   output: {
-    path: __dirname + '/public/js',
+    path: __dirname + '/public',
     filename: 'bundle.min.js'
   },
   devServer: {
-    contentBase: "./public",
-    compress: true,
-    port: 9000
+    contentBase: "public",
+    filename: "bundle.min.js"
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ]
