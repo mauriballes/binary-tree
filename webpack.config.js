@@ -34,6 +34,10 @@ module.exports = {
             presets: ['es2015']
           }
         }
+      }, {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
   }
