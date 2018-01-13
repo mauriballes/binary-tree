@@ -42,6 +42,26 @@ export class Tree {
     else
       return this.findRecursive(leaf.left, value);
   }
+  maxValue(): number | null {
+    // if empty
+    if (this._root === null) return null;
+    // if not empty
+    return this.maxValueRecursive(this._root);
+  }
+  private maxValueRecursive(leaf: Leaf): number {
+    if (leaf.right === null) return leaf.value;
+    return this.maxValueRecursive(leaf.right);
+  }
+  minValue(): number | null {
+    // if empty
+    if (this._root === null) return null;
+    // if not empty
+    return this.minValueRecursive(this._root);
+  }
+  private minValueRecursive(leaf: Leaf): number {
+    if (leaf.left === null) return leaf.value;
+    return this.minValueRecursive(leaf.left);
+  }
   inOrder(): Array<number> {
     return this.inOrderRecursive(this._root);
   }
