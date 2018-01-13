@@ -2,9 +2,9 @@ import { Leaf } from './Leaf';
 
 export class Tree {
   // Attributes
-  private _root: Leaf;
+  private _root: Leaf | null;
   // Constructor
-  constructor(root = new Leaf()) {
-    this._root = root;
+  constructor(root?: Leaf) {
+    this._root = root ? root : null;
   }
 }
