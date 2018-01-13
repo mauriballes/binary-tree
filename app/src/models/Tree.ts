@@ -32,6 +32,36 @@ export class Tree {
       }
     }
   }
+  inOrder(): Array<number> {
+    return this.inOrderRecursive(this._root);
+  }
+  private inOrderRecursive(leaf: Leaf | null): Array<number> {
+    if (leaf === null) return [];
+    let left: number[] = this.inOrderRecursive(leaf.left);
+    let actual: number[] = [leaf.value];
+    let right: number[] = this.inOrderRecursive(leaf.right);
+    return left.concat(actual.concat(right));
+  }
+  preOrder(): Array<number> {
+    return this.preOrderRecursive(this._root);
+  }
+  private preOrderRecursive(leaf: Leaf | null): Array<number> {
+    if (leaf === null) return [];
+    let actual: number[] = [leaf.value];
+    let left: number[] = this.preOrderRecursive(leaf.left);
+    let right: number[] = this.preOrderRecursive(leaf.right);
+    return actual.concat(left.concat(right));
+  }
+  postOrder(): Array<number> {
+    return this.postOrderRecursive(this._root);
+  }
+  private postOrderRecursive(leaf: Leaf | null): Array<number> {
+    if (leaf === null) return [];
+    let left: number[] = this.postOrderRecursive(leaf.left);
+    let right: number[] = this.postOrderRecursive(leaf.right);
+    let actual: number[] = [leaf.value];
+    return left.concat(right.concat(actual));
+  }
   // toString
   toString(): string {
     if (this._root === null) {
