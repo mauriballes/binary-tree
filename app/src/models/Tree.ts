@@ -32,6 +32,16 @@ export class Tree {
       }
     }
   }
+  find(value: number): Leaf | null {
+    return this.findRecursive(this._root, value);
+  }
+  private findRecursive(leaf: Leaf | null, value: number): Leaf | null {
+    if (leaf === null || leaf.value === value) return leaf;
+    if (value > leaf.value)
+      return this.findRecursive(leaf.right, value);
+    else
+      return this.findRecursive(leaf.left, value);
+  }
   inOrder(): Array<number> {
     return this.inOrderRecursive(this._root);
   }
