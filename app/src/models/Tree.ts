@@ -15,22 +15,62 @@ export class Tree {
       return;
     }
     // if not empty
-    this.insertRecursive(this._root, value);
+    this.insertRecursive(this._root, new Leaf(value));
   }
-  private insertRecursive(leaf: Leaf, value: number): void {
-    if (value > leaf.value) {
+  private insertRecursive(leaf: Leaf, newLeaf: Leaf): void {
+    if (newLeaf.value > leaf.value) {
       if (leaf.right === null) {
-        leaf.right = new Leaf(value);
+        leaf.right = newLeaf;
       } else {
-        this.insertRecursive(leaf.right, value);
+        this.insertRecursive(leaf.right, newLeaf);
       }
-    } else if (value < leaf.value) {
+    } else if (newLeaf.value < leaf.value) {
       if (leaf.left === null) {
-        leaf.left = new Leaf(value);
+        leaf.left = newLeaf;
       } else {
-        this.insertRecursive(leaf.left, value);
+        this.insertRecursive(leaf.left, newLeaf);
       }
     }
+  }
+  remove(value: number): void {
+    this._root = this.removeRecursive(this._root, value);
+  }
+  private removeRecursive(leaf: Leaf | null, value: number): Leaf | null {
+    // if empty
+    if (leaf === null) return null;
+    // if the same value
+    if (leaf.value === value) {
+      // if child
+      if (leaf.isChild()) return null;
+      // if have one child
+      if (leaf.left === null) return leaf.right;
+      if (leaf.right === null) return leaf.left;
+      // if have two childs
+      let leftCount: number = this.countLeafRecursive(leaf.left);
+      let rightCount: number = this.countLeafRecursive(leaf.right);
+      // choose the biggest
+      if (leftCount > rightCount) {
+        this.insertRecursive(leaf.left, leaf.right);
+        return leaf.left;
+      } else {
+        this.insertRecursive(leaf.right, leaf.left);
+        return leaf.right;
+      }
+    }
+    // Search in other place
+    if (value > leaf.value) {
+      leaf.right = this.removeRecursive(leaf.right, value);
+    } else {
+      leaf.left = this.removeRecursive(leaf.left, value);
+    }
+    return leaf;
+  }
+  countLeaf(): number {
+    return this.countLeafRecursive(this._root);
+  }
+  private countLeafRecursive(leaf: Leaf | null, count = 0): number {
+    if (leaf === null) return count;
+    return this.countLeafRecursive(leaf.left, this.countLeafRecursive(leaf.right, count + 1));
   }
   find(value: number): Leaf | null {
     return this.findRecursive(this._root, value);

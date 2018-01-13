@@ -18,6 +18,8 @@ export class Leaf {
 
   get right(): Leaf | null { return this._right; }
   set right(right: Leaf | null) { this._right = right; }
+  // Methods
+  isChild(): boolean { return this._left === null && this._right === null; }
   // toString
   toString(): string {
     return String(this._value);
