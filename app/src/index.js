@@ -1,5 +1,4 @@
 import {DataSet, Network} from 'vis';
-import './tree';
 
 // create an array with nodes
 let nodes = new DataSet([
