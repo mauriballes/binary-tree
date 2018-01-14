@@ -1,1 +1,1 @@
-# Binary Tree Project with ES6
+# Binary Tree Project with Typescript & ES6

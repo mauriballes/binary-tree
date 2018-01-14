@@ -1,4 +1,5 @@
 import { Leaf } from './Leaf';
+import { Edges, Nodes, NetworkData } from './Structures';
 
 export class Tree {
   // Attributes
@@ -131,6 +132,16 @@ export class Tree {
     let right: Leaf[] = this.postOrderRecursive(leaf.right);
     let actual: Leaf[] = [leaf];
     return left.concat(right.concat(actual));
+  }
+  getNodesAndEdges(): NetworkData {
+    let nodes: Nodes[] = [];
+    let edges: Edges[] = [];
+    let leafs: Leaf[] = this.inOrder();
+    for (let leaf of leafs) {
+      nodes.push(leaf.getNode());
+      edges.concat(leaf.getEdges());
+    }
+    return { nodes: nodes, edges: edges };
   }
   // toString
   toString(): string {

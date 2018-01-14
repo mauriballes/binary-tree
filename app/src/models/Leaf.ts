@@ -1,3 +1,5 @@
+import { Edges, Nodes } from './Structures';
+
 export class Leaf {
   // Attributes
   private _left: Leaf | null;
@@ -19,7 +21,18 @@ export class Leaf {
   get right(): Leaf | null { return this._right; }
   set right(right: Leaf | null) { this._right = right; }
   // Methods
-  isChild(): boolean { return this._left === null && this._right === null; }
+  isChild(): boolean {
+    return this._left === null && this._right === null;
+  }
+  getNode(): Nodes {
+    return { id: this._value, label: String(this._value) };
+  }
+  getEdges(): Array<Edges> {
+    let edges: Edges[] = [];
+    if (this._left !== null) edges.push({ from: this._value, to: this._left.value, arrows: 'to' });
+    if (this._right !== null) edges.push({ from: this._value, to: this._right.value, arrows: 'to' });
+    return edges;
+  }
   // toString
   toString(): string {
     return String(this._value);
