@@ -139,7 +139,7 @@ export class Tree {
     let leafs: Leaf[] = this.inOrder();
     for (let leaf of leafs) {
       nodes.push(leaf.getNode());
-      edges.concat(leaf.getEdges());
+      edges = edges.concat(leaf.getEdges());
     }
     return { nodes: nodes, edges: edges };
   }
