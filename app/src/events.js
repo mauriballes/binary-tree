@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 import {App} from './app';
 
 const container = $('#mynetwork').get(0);
@@ -17,16 +18,20 @@ $('#send-action').click(() => {
   // Get method
   let method = $('input#method').val();
   let inputVal = $('input#input-value').val();
-  let value = Math.trunc(inputVal);
+  let valueInt = Math.trunc(inputVal);
   switch (method) {
     case '@insert':
-      app.insert(value);
+      app.insert(valueInt);
       break;
     case '@find':
-      app.find(value);
+      let valueRes = app.find(valueInt);
+      if (valueRes === null)
+        swal("Elemento No Encontrado", "No se encontro la hoja!", "error");
+      else
+        swal("Elemento Encontrado", "Se encontro la hoja!", "success");
       break;
     case '@remove':
-      app.remove(value);
+      app.remove(valueInt);
       break;
     default:
       break;

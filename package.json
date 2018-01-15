@@ -9,10 +9,11 @@
   "scripts": {
     "start": "node index.js",
     "dev": "webpack-dev-server --hot --inline --open",
-    "postinstall": "webpack -p"
+    "build": "webpack -p"
   },
   "dependencies": {
     "express": "^4.16.2",
+    "sweetalert": "^2.1.0",
     "vis": "^4.21.0"
   },
   "devDependencies": {
