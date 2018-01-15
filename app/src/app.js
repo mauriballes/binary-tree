@@ -11,7 +11,27 @@ export class App {
       nodes: this.nodes,
       edges: this.edges
     };
-    this.network = new Network(container, data, {});
+    let options = {
+      layout: {
+        hierarchical: {
+          direction: "UD",
+          sortMethod: "directed"
+        }
+      },
+      edges: {
+        smooth: true,
+        arrows: {
+          to: true
+        }
+      },
+      interaction: {
+        dragNodes: false
+      },
+      physics: {
+        enabled: false
+      }
+    };
+    this.network = new Network(container, data, options);
   }
   insert(value) {
     this.tree.insert(value);

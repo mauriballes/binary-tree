@@ -29,8 +29,8 @@ export class Leaf {
   }
   getEdges(): Array<Edges> {
     let edges: Edges[] = [];
-    if (this._left !== null) edges.push({ from: this._value, to: this._left.value, arrows: 'to' });
-    if (this._right !== null) edges.push({ from: this._value, to: this._right.value, arrows: 'to' });
+    if (this._left !== null) edges.push({ from: this._value, to: this._left.value });
+    if (this._right !== null) edges.push({ from: this._value, to: this._right.value });
     return edges;
   }
   // toString

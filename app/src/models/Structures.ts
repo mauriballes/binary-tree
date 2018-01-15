@@ -1,7 +1,6 @@
 export interface Edges {
   from: number;
   to: number;
-  arrows: string;
 }
 
 export interface Nodes {
