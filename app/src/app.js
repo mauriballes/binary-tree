@@ -1,5 +1,4 @@
-import DataSet from 'vis/lib/DataSet';
-import Network from 'vis/lib/network/Network';
+import {DataSet, Network} from 'vis';
 import {Tree} from './models/Tree';
 
 export class App {
