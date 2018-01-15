@@ -25,7 +25,7 @@ El cual te abrira el navegador para que puedas visualizar el proyecto
 
 ### Production
 
-Para desplegarlo en producccion debes ejecutar el comando: `npm run build` para compilar
+Para desplegarlo en producccion debes ejecutar los comandos: `npm install && npm run build` para compilar
 los archivos y luego puedes usar el script `npm start` para inicializar la app o tambien
 puedes usar `node index.js`. De manera opcional estan incluidos los archivos `nginx.conf`
 y `ecosystem.config.js` para correr la app utilizando Nginx y PM2.
