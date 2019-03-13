@@ -1,0 +1,13 @@
+version: '3'
+services:
+  binary-tree:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: binary-tree:v1
+    container_name: binary-tree
+    command: ["npm", "start"]
+    environment:
+      PORT: 5002
+    ports:
+      - 5002:5002
