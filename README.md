@@ -7,7 +7,7 @@ estos. Se creo con la funcionalidad de aprender Typescript, ES6 y Webpack.
 
 ### Live
 
-Si quieres puedes ver el funcionamiento de app ingresando en esta [url](http://tree.mauriballes.me).
+Si quieres puedes ver el funcionamiento de app ingresando en esta [url](http://tree.mauriballes.com).
 
 ### Local
 
