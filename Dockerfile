@@ -1,14 +1,17 @@
-FROM node:10-alpine
-
-ENV PORT 3000
+# Builder
+FROM node:10-alpine AS builder
 
 RUN mkdir /app && apk add --no-cache git
 
 WORKDIR /app
+
 COPY . .
 
 RUN npm install && npm run build
 
-EXPOSE 3000
+# Executer
+FROM nginx:1.17.10-alpine
 
-CMD [ "npm", "start" ]
+COPY --from=builder /app/public /usr/share/nginx/html
+
+EXPOSE 80

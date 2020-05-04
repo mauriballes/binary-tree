@@ -1,0 +1,64 @@
+# Kubernetes files
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: binary-tree-deployment
+  namespace: production
+  labels:
+    app: binary-tree
+    version: "1.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: binary-tree
+      version: "1.0"
+  template:
+    metadata:
+      labels:
+        app: binary-tree
+        version: "1.0"
+    spec:
+      containers:
+        - name: binary-tree
+          image: mauriballes/binary-tree:1.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 102Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: binary-tree-service
+  namespace: production
+spec:
+  selector:
+    app: binary-tree
+    version: "1.0"
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: binary-tree-ingress
+  namespace: production
+spec:
+  rules:
+    - host: tree.mauriballes.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: binary-tree-service
+              servicePort: 80
