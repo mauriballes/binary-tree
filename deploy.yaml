@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: binary-tree-deployment
-  namespace: production
+  namespace: dev
   labels:
     app: binary-tree
     version: "1.0"
@@ -28,17 +28,17 @@ spec:
             - containerPort: 80
           resources:
             limits:
-              cpu: 500m
-              memory: 512Mi
-            requests:
               cpu: 100m
-              memory: 102Mi
+              memory: 100Mi
+            requests:
+              cpu: 50m
+              memory: 50Mi
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: binary-tree-service
-  namespace: production
+  namespace: dev
 spec:
   selector:
     app: binary-tree
@@ -52,10 +52,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: binary-tree-ingress
-  namespace: production
+  namespace: dev
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/issuer: "letsencrypt-prod"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   tls:
     - hosts:
