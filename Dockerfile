@@ -1,5 +1,5 @@
 # Builder
-FROM node:10-alpine AS builder
+FROM node:12-alpine AS builder
 
 RUN mkdir /app && apk add --no-cache git
 
